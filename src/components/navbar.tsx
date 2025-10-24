@@ -67,6 +67,10 @@ export default function Navbar({ language, onLanguageChange }: NavbarProps) {
           </a>
         </div>
 
+        <a href="/blog" className="md:hidden text-sm font-medium hover:text-accent transition-colors">
+          {t.nav.blog}
+        </a>
+
         {/* Language Switcher */}
         <div className="relative">
           <button
