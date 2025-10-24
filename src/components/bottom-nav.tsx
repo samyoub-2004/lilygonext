@@ -1,15 +1,8 @@
 "use client"
 
-import { Phone, MessageCircle, Moon, Sun } from "lucide-react"
-import { useState, useEffect } from "react"
+import { Phone, MessageCircle } from "lucide-react"
 
 export default function BottomNav() {
-  const [isDark, setIsDark] = useState(false)
-
-  useEffect(() => {
-    setIsDark(document.documentElement.classList.contains("dark"))
-  }, [])
-
   const handleCall = () => {
     window.location.href = "tel:+33123456789"
   }
@@ -20,17 +13,6 @@ export default function BottomNav() {
 
   const handleReservation = () => {
     window.location.href = "/book"
-  }
-
-  const toggleTheme = () => {
-    const newTheme = !isDark
-    setIsDark(newTheme)
-    localStorage.setItem("theme", newTheme ? "dark" : "light")
-    if (newTheme) {
-      document.documentElement.classList.add("dark")
-    } else {
-      document.documentElement.classList.remove("dark")
-    }
   }
 
   return (
@@ -64,21 +46,6 @@ export default function BottomNav() {
           Réserver
         </button>
 
-        {/* Divider */}
-        <div className="w-px h-6 bg-border" />
-
-        {/* Theme Toggle */}
-        <button
-          onClick={toggleTheme}
-          className="p-3 rounded-full hover:bg-accent/20 transition-all duration-300 group"
-          title="Changer le thème"
-        >
-          {isDark ? (
-            <Sun className="w-5 h-5 text-accent group-hover:scale-110 transition-transform" />
-          ) : (
-            <Moon className="w-5 h-5 text-accent group-hover:scale-110 transition-transform" />
-          )}
-        </button>
       </div>
     </div>
   )

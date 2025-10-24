@@ -44,7 +44,9 @@ export default function Navbar({ language, onLanguageChange }: NavbarProps) {
         }`}
       >
         {/* Logo */}
-        <div className="font-serif font-bold text-lg text-accent">LILYGO</div>
+        <a href="/" className="font-serif font-bold text-lg text-accent hover:text-accent/80 transition-colors">
+          LILYGO
+        </a>
 
         {/* Navigation Links */}
         <div className="hidden md:flex items-center gap-8">
@@ -60,6 +62,9 @@ export default function Navbar({ language, onLanguageChange }: NavbarProps) {
           >
             {t.nav.faq}
           </button>
+          <a href="/blog" className="text-sm font-medium hover:text-accent transition-colors">
+            {language === "fr" ? "Blog" : "Blog"}
+          </a>
         </div>
 
         {/* Language Switcher */}

@@ -4,6 +4,7 @@ export const translations = {
       services: "Services",
       faq: "FAQ",
       contact: "Contact",
+      blog: "Blog",
     },
     hero: {
       badge: "Transport VIP Premium",
@@ -55,6 +56,7 @@ export const translations = {
       services: "Services",
       faq: "FAQ",
       contact: "Contact",
+      blog: "Blog",
     },
     hero: {
       badge: "Premium VIP Transport",

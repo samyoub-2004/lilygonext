@@ -9,7 +9,6 @@ import type { Language } from "../../lib/i18n"
 
 export default function BookPage() {
   const router = useRouter()
-  const [isDark, setIsDark] = useState(false)
   const [mounted, setMounted] = useState(false)
   const [language, setLanguage] = useState<Language>("fr")
 
@@ -22,37 +21,11 @@ export default function BookPage() {
       setLanguage(savedLanguage)
     }
 
-    const savedTheme = localStorage.getItem("theme")
-    let shouldBeDark = false
-
-    if (savedTheme) {
-      shouldBeDark = savedTheme === "dark"
-    } else {
-      shouldBeDark = window.matchMedia("(prefers-color-scheme: dark)").matches
-    }
-
-    setIsDark(shouldBeDark)
-    if (shouldBeDark) {
-      document.documentElement.classList.add("dark")
-    } else {
-      document.documentElement.classList.remove("dark")
-    }
   }, [])
 
   const handleLanguageChange = (lang: Language) => {
     setLanguage(lang)
     localStorage.setItem("language", lang)
-  }
-
-  const toggleTheme = () => {
-    const newTheme = !isDark
-    setIsDark(newTheme)
-    localStorage.setItem("theme", newTheme ? "dark" : "light")
-    if (newTheme) {
-      document.documentElement.classList.add("dark")
-    } else {
-      document.documentElement.classList.remove("dark")
-    }
   }
 
   if (!mounted) {

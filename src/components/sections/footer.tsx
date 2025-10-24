@@ -10,6 +10,24 @@ interface FooterProps {
 
 export default function Footer({ language }: FooterProps) {
   const t = translations[language]
+  const quickLinks =
+    language === "fr"
+      ? [
+          { label: "Accueil", href: "/" },
+          { label: "Services", href: "#services" },
+          { label: "FAQ", href: "#faq" },
+          { label: "Contact", href: "#contact" },
+          { label: "Mentions légales", href: "/mentions-legales" },
+          { label: "Politique de confidentialité", href: "/privacy" },
+        ]
+      : [
+          { label: "Home", href: "/" },
+          { label: "Services", href: "#services" },
+          { label: "FAQ", href: "#faq" },
+          { label: "Contact", href: "#contact" },
+          { label: "Legal Notice", href: "/mentions-legales" },
+          { label: "Privacy Policy", href: "/privacy" },
+        ]
 
   return (
     <footer id="footer" className="bg-primary text-primary-foreground py-16 relative overflow-hidden">
@@ -33,13 +51,13 @@ export default function Footer({ language }: FooterProps) {
           <div>
             <h4 className="font-semibold mb-4">{language === "fr" ? "Navigation" : "Navigation"}</h4>
             <ul className="space-y-2 text-sm">
-              {(language === "fr"
-                ? ["Accueil", "Services", "FAQ", "Contact"]
-                : ["Home", "Services", "FAQ", "Contact"]
-              ).map((link) => (
-                <li key={link}>
-                  <a href="#" className="text-primary-foreground/70 hover:text-primary-foreground transition-colors">
-                    {link}
+              {quickLinks.map((link) => (
+                <li key={link.label}>
+                  <a
+                    href={link.href}
+                    className="text-primary-foreground/70 hover:text-primary-foreground transition-colors"
+                  >
+                    {link.label}
                   </a>
                 </li>
               ))}
@@ -104,10 +122,10 @@ export default function Footer({ language }: FooterProps) {
                 : "&copy; 2025 LUXE VTC. All rights reserved."}
             </p>
             <div className="flex gap-6">
-              <a href="#" className="hover:text-primary-foreground transition-colors">
+              <a href="/mentions-legales" className="hover:text-primary-foreground transition-colors">
                 {language === "fr" ? "Mentions légales" : "Legal Notice"}
               </a>
-              <a href="#" className="hover:text-primary-foreground transition-colors">
+              <a href="/privacy" className="hover:text-primary-foreground transition-colors">
                 {language === "fr" ? "Politique de confidentialité" : "Privacy Policy"}
               </a>
               <a href="#" className="hover:text-primary-foreground transition-colors">
