@@ -9,6 +9,7 @@ import Services from "../components/sections/services"
 import FAQ from "../components/sections/faq"
 import Footer from "../components/sections/footer"
 import BottomNav from "../components/bottom-nav"
+import LilyGoChat from "../components/lilygo-chat"
 import type { Language } from "../lib/i18n"
 
 export default function Home() {
@@ -55,6 +56,7 @@ export default function Home() {
       </main>
 
       <BottomNav />
+      <LilyGoChat />
     </div>
   )
 }

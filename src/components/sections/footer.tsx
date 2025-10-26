@@ -19,6 +19,7 @@ export default function Footer({ language }: FooterProps) {
           { label: "Contact", href: "#contact" },
           { label: "Mentions légales", href: "/mentions-legales" },
           { label: "Politique de confidentialité", href: "/privacy" },
+          { label: "Suppression de compte", href: "/suppression-compte" },
         ]
       : [
           { label: "Home", href: "/" },
@@ -27,6 +28,7 @@ export default function Footer({ language }: FooterProps) {
           { label: "Contact", href: "#contact" },
           { label: "Legal Notice", href: "/mentions-legales" },
           { label: "Privacy Policy", href: "/privacy" },
+          { label: "Account Deletion", href: "/suppression-compte" },
         ]
 
   return (
@@ -127,6 +129,9 @@ export default function Footer({ language }: FooterProps) {
               </a>
               <a href="/privacy" className="hover:text-primary-foreground transition-colors">
                 {language === "fr" ? "Politique de confidentialité" : "Privacy Policy"}
+              </a>
+              <a href="/suppression-compte" className="hover:text-primary-foreground transition-colors">
+                {language === "fr" ? "Suppression de compte" : "Account Deletion"}
               </a>
               <a href="#" className="hover:text-primary-foreground transition-colors">
                 {language === "fr" ? "Conditions d'utilisation" : "Terms of Use"}

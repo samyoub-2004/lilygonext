@@ -44,9 +44,11 @@ export default function ReservationForm() {
   })
   const [waypoints, setWaypoints] = useState<string[]>([])
 
-  const departureInputRef = useRef<HTMLInputElement>(null)
-  const destinationInputRef = useRef<HTMLInputElement>(null)
-  const waypointInputRefs = useRef<(HTMLInputElement | null)[]>([])
+  const departureInputRef = useRef<HTMLDivElement>(null)
+  const destinationInputRef = useRef<HTMLDivElement>(null)
+  const waypointInputRefs = useRef<(HTMLDivElement | null)[]>([])
+  const dateInputRef = useRef<HTMLInputElement>(null)
+  const timeInputRef = useRef<HTMLInputElement>(null)
 
   const [departureSuggestions, setDepartureSuggestions] = useState<Suggestion[]>([])
   const [destinationSuggestions, setDestinationSuggestions] = useState<Suggestion[]>([])
@@ -61,6 +63,20 @@ export default function ReservationForm() {
     setShowWaypointSuggestions(Array(waypoints.length).fill(false))
     waypointInputRefs.current = waypointInputRefs.current.slice(0, waypoints.length)
   }, [waypoints.length])
+
+  const openNativePicker = (input: HTMLInputElement | null) => {
+    if (!input) return
+    const picker = input as HTMLInputElement & { showPicker?: () => void }
+    picker.showPicker?.()
+  }
+
+  const handleDateFocus = () => {
+    openNativePicker(dateInputRef.current)
+  }
+
+  const handleTimeFocus = () => {
+    openNativePicker(timeInputRef.current)
+  }
 
   const getPlaceSuggestions = (input: string, callback: (suggestions: Suggestion[]) => void) => {
     if (!isGoogleMapsLoaded || !window.google || !input) {
@@ -477,9 +493,11 @@ export default function ReservationForm() {
           <div className="relative">
             <Calendar className="absolute left-4 top-3.5 w-5 h-5 text-orange-500" />
             <input
+              ref={dateInputRef}
               type="date"
               value={formData.date}
               onChange={(e) => setFormData({ ...formData, date: e.target.value })}
+              onFocus={handleDateFocus}
               className="w-full pl-12 pr-4 py-3 bg-white/80 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-500 transition-all"
               required
             />
@@ -491,9 +509,11 @@ export default function ReservationForm() {
           <div className="relative">
             <Clock className="absolute left-4 top-3.5 w-5 h-5 text-orange-500" />
             <input
+              ref={timeInputRef}
               type="time"
               value={formData.time}
               onChange={(e) => setFormData({ ...formData, time: e.target.value })}
+              onFocus={handleTimeFocus}
               className="w-full pl-12 pr-4 py-3 bg-white/80 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-500 transition-all"
               required
             />

@@ -25,6 +25,7 @@ export const CORE_ROUTES: SitemapRoute[] = [
   { path: "/payment", changeFrequency: "monthly", priority: 0.7 },
   { path: "/privacy", changeFrequency: "yearly", priority: 0.5 },
   { path: "/mentions-legales", changeFrequency: "yearly", priority: 0.5 },
+  { path: "/suppression-compte", changeFrequency: "yearly", priority: 0.3 },
 ]
 
 export const BLOG_BASE_PATH = "/blog"
