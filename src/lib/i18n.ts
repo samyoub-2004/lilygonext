@@ -34,6 +34,14 @@ export const translations = {
       service4Title: "Sécurité Garantie",
       service4Desc: "Véhicules assurés et chauffeurs vérifiés pour votre tranquillité d'esprit.",
     },
+    apps: {
+      badge: "Applications Mobiles",
+      title: "Retrouvez LUXE VTC sur mobile",
+      description:
+        "Téléchargez notre application sur iOS et Android pour réserver en quelques secondes, suivre votre chauffeur en temps réel et gérer vos trajets.",
+      appStore: "Disponible sur l'App Store",
+      playStore: "Disponible sur Google Play",
+    },
     faq: {
       badge: "Questions Fréquentes",
       title: "Vos Questions, Nos Réponses",
@@ -84,6 +92,14 @@ export const translations = {
       service3Desc: "Service available at any time, day and night, for your travels.",
       service4Title: "Guaranteed Safety",
       service4Desc: "Insured vehicles and verified drivers for your peace of mind.",
+    },
+    apps: {
+      badge: "Mobile Apps",
+      title: "Get LUXE VTC on mobile",
+      description:
+        "Download our app on iOS and Android to book in seconds, track your driver in real time, and manage your rides.",
+      appStore: "Available on the App Store",
+      playStore: "Available on Google Play",
     },
     faq: {
       badge: "Frequently Asked Questions",

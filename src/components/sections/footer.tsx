@@ -1,6 +1,6 @@
 "use client"
 
-import { Mail, Phone, MapPin, Sunrise as Stripe, CreditCard } from "lucide-react"
+import { Mail, Phone, MapPin, Sunrise as Stripe, CreditCard, Apple, Play } from "lucide-react"
 import type { Language } from "../../lib/i18n"
 import { translations } from "../../lib/i18n"
 
@@ -49,6 +49,27 @@ export default function Footer({ language }: FooterProps) {
                 ? "Votre partenaire de confiance pour un transport VIP premium en France."
                 : "Your trusted partner for premium VIP transport in France."}
             </p>
+
+            <div className="mt-6 flex flex-col sm:flex-row gap-3">
+              <a
+                href="https://apps.apple.com/app/id6754383869"
+                className="group inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-primary-foreground/20 hover:border-primary-foreground/40 transition-colors bg-transparent hover:bg-primary-foreground/10"
+              >
+                <Apple className="w-4 h-4" />
+                <span className="text-sm font-medium">
+                  {language === "fr" ? "App Store" : "App Store"}
+                </span>
+              </a>
+              <a
+                href="https://play.google.com/store/apps/details?id=com.lilygo.vtcs"
+                className="group inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-primary-foreground/20 hover:border-primary-foreground/40 transition-colors bg-transparent hover:bg-primary-foreground/10"
+              >
+                <Play className="w-4 h-4" />
+                <span className="text-sm font-medium">
+                  {language === "fr" ? "Google Play" : "Google Play"}
+                </span>
+              </a>
+            </div>
           </div>
 
           {/* Quick Links */}

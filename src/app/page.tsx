@@ -6,10 +6,10 @@ import ScrollIndicator from "../components/scroll-indicator"
 import Navbar from "../components/navbar"
 import Hero from "../components/sections/hero"
 import Services from "../components/sections/services"
+import Apps from "../components/sections/apps"
 import FAQ from "../components/sections/faq"
 import Footer from "../components/sections/footer"
 import BottomNav from "../components/bottom-nav"
-import LilyGoChat from "../components/lilygo-chat"
 import type { Language } from "../lib/i18n"
 
 export default function Home() {
@@ -51,12 +51,12 @@ export default function Home() {
       <main className="overflow-hidden">
         <Hero language={language} />
         <Services language={language} />
+        <Apps language={language} />
         <FAQ language={language} />
         <Footer language={language} />
       </main>
 
       <BottomNav />
-      <LilyGoChat />
     </div>
   )
 }
