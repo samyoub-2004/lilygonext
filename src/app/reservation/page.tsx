@@ -445,20 +445,11 @@ export default function VehicleSelectionPage() {
                                 : `Pour ${reservationData.duration} heure(s)`}
                             </p>
                           </div>
-
-                          {reservationData.tripType === "simple" && (
-                            <div className="text-right">
-                              <p className="text-sm text-gray-600">Base: {priceInfo.base.toFixed(2)}€</p>
-                              <p className="text-sm text-gray-600">Distance: {priceInfo.distance.toFixed(2)}€</p>
-                            </div>
-                          )}
-
-                          {reservationData.tripType === "hourly" && (
-                            <div className="text-right">
-                              <p className="text-sm text-gray-600">Base: {priceInfo.base.toFixed(2)}€</p>
-                              <p className="text-sm text-gray-600">Heures: {priceInfo.distance.toFixed(2)}€</p>
-                            </div>
-                          )}
+                          
+                          {/* Détails des prix masqués */}
+                          <div className="text-right">
+                            <p className="text-sm text-gray-300">Prix détaillé sur demande</p>
+                          </div>
                         </div>
                       </div>
                     )}
