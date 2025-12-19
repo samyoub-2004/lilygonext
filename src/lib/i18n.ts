@@ -24,7 +24,7 @@ export const translations = {
     services: {
       badge: "Nos Services",
       title: "Excellence en Chaque Détail",
-      description: "Découvrez ce qui fait de LUXE VTC le choix préféré des clients exigeants",
+      description: "Découvrez ce qui fait de Lilygo le choix préféré des clients exigeants",
       service1Title: "Réservation Rapide",
       service1Desc: "Réservez en moins de 2 minutes via notre plateforme intuitive et sécurisée.",
       service2Title: "Chauffeurs Professionnels",
@@ -36,7 +36,7 @@ export const translations = {
     },
     apps: {
       badge: "Applications Mobiles",
-      title: "Retrouvez LUXE VTC sur mobile",
+      title: "Retrouvez Lilygo sur mobile",
       description:
         "Téléchargez notre application sur iOS et Android pour réserver en quelques secondes, suivre votre chauffeur en temps réel et gérer vos trajets.",
       appStore: "Disponible sur l'App Store",
@@ -83,7 +83,7 @@ export const translations = {
     services: {
       badge: "Our Services",
       title: "Excellence in Every Detail",
-      description: "Discover what makes LUXE VTC the preferred choice of demanding clients",
+      description: "Discover what makes Lilygo the preferred choice of demanding clients",
       service1Title: "Quick Booking",
       service1Desc: "Book in less than 2 minutes via our intuitive and secure platform.",
       service2Title: "Professional Drivers",
@@ -95,7 +95,7 @@ export const translations = {
     },
     apps: {
       badge: "Mobile Apps",
-      title: "Get LUXE VTC on mobile",
+      title: "Get Lilygo on mobile",
       description:
         "Download our app on iOS and Android to book in seconds, track your driver in real time, and manage your rides.",
       appStore: "Available on the App Store",

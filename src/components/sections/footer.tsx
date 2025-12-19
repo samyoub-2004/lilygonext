@@ -43,7 +43,7 @@ export default function Footer({ language }: FooterProps) {
         <div className="grid md:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
           <div>
-            <h3 className="text-2xl font-serif font-bold mb-4">LUXE VTC</h3>
+            <h3 className="text-2xl font-serif font-bold mb-4">Lilygo</h3>
             <p className="text-primary-foreground/70 text-sm leading-relaxed">
               {language === "fr"
                 ? "Votre partenaire de confiance pour un transport VIP premium en France."
@@ -143,8 +143,8 @@ export default function Footer({ language }: FooterProps) {
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-primary-foreground/60">
             <p>
               {language === "fr"
-                ? "&copy; 2025 LUXE VTC. Tous droits réservés."
-                : "&copy; 2025 LUXE VTC. All rights reserved."}
+                ? "&copy; 2025 Lilygo. Tous droits réservés."
+                : "&copy; 2025 Lilygo. All rights reserved."}
             </p>
             <div className="flex gap-6">
               <a href="/mentions-legales" className="hover:text-primary-foreground transition-colors">
