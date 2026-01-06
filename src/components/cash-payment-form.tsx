@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { AlertCircle, Loader } from "lucide-react"
 import { saveReservationToFirestore } from "../lib/save-reservation"
-import { sendConfirmationEmail } from "../lib/send-confirmation-email"
+import { sendConfirmationEmail, sendAdminNotification } from "../lib/send-confirmation-email"
 import { SuccessModal } from "./success-modal"
 
 interface ReservationData {
@@ -54,6 +54,7 @@ export function CashPaymentForm({ reservationData, onSuccess, onError, onProcess
     try {
       const reservationId = await saveReservationToFirestore(reservationData, "cash", "")
       await sendConfirmationEmail(reservationData, reservationId, "Espèces")
+      await sendAdminNotification(reservationData, reservationId, "Espèces")
       onProcessing(false)
       setShowSuccessModal(true)
     } catch (err) {

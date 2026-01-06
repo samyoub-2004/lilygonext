@@ -7,7 +7,7 @@ import { loadStripe } from "@stripe/stripe-js"
 import { Elements, CardElement, useStripe, useElements } from "@stripe/react-stripe-js"
 import { AlertCircle, Loader } from "lucide-react"
 import { saveReservationToFirestore } from "../lib/save-reservation"
-import { sendConfirmationEmail } from "../lib/send-confirmation-email"
+import { sendConfirmationEmail, sendAdminNotification } from "../lib/send-confirmation-email"
 import { SuccessModal } from "./success-modal"
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || "")
@@ -112,6 +112,7 @@ function StripePaymentFormContent({ reservationData, onSuccess, onError, onProce
       } else if (result.paymentIntent?.status === "succeeded") {
         const reservationId = await saveReservationToFirestore(reservationData, "stripe", result.paymentIntent.id)
         await sendConfirmationEmail(reservationData, reservationId, "Stripe")
+        await sendAdminNotification(reservationData, reservationId, "Stripe")
         setShowSuccessModal(true)
       }
     } catch (err) {

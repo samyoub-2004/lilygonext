@@ -72,3 +72,56 @@ export async function sendConfirmationEmail(
     throw error
   }
 }
+
+export async function sendAdminNotification(
+  reservationData: ReservationData,
+  reservationId: string,
+  paymentMethod: string,
+) {
+  try {
+    const isHourly = reservationData.tripType === "hourly"
+    const emailUrl = isHourly
+      ? "https://sendconfirmationemailhourly-3ritbjjw3a-uc.a.run.app"
+      : "https://sendconfirmationemailsimple-3ritbjjw3a-uc.a.run.app"
+
+    const reservationDetails: ReservationDetails = {
+      reservationId,
+      customerName: `${reservationData.personalInfo.firstName} ${reservationData.personalInfo.lastName}`,
+      phone: reservationData.personalInfo.phone,
+      email: reservationData.personalInfo.email,
+      date: `${reservationData.date} à ${reservationData.time}`,
+      passengers: reservationData.passengers,
+      paymentMethod,
+      departure: reservationData.departure,
+      destination: reservationData.destination,
+      distance: reservationData.distance ? `${reservationData.distance} km` : undefined,
+      vehicle: reservationData.selectedVehicle.name,
+      options: reservationData.selectedOptions.map((opt) => opt.name),
+      totalPrice: reservationData.totalPrice.toFixed(2),
+      ...(isHourly ? { stops: reservationData.waypoints } : { waypoints: reservationData.waypoints }),
+    }
+
+    const response = await fetch(emailUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        to: "oubrahamsamy19@gmail.com",
+        subject: "Nouvelle réservation confirmée - VTC LILYGO",
+        reservationDetails,
+      }),
+    })
+
+    if (!response.ok) {
+      console.error("[v0] Admin email send failed:", response.statusText)
+      throw new Error("Erreur lors de l'envoi de l'email admin")
+    }
+
+    console.log("[v0] Admin notification email sent successfully")
+    return true
+  } catch (error) {
+    console.error("[v0] Error sending admin notification:", error)
+    throw error
+  }
+}

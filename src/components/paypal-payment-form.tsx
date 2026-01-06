@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react"
 import { AlertCircle, Loader } from "lucide-react"
 import { saveReservationToFirestore } from "../lib/save-reservation"
-import { sendConfirmationEmail } from "../lib/send-confirmation-email"
+import { sendConfirmationEmail, sendAdminNotification } from "../lib/send-confirmation-email"
 import { SuccessModal } from "./success-modal"
 
 interface ReservationData {
@@ -95,6 +95,7 @@ export function PayPalPaymentForm({ reservationData, onSuccess, onError, onProce
 
             const reservationId = await saveReservationToFirestore(reservationData, "paypal", details.id)
             await sendConfirmationEmail(reservationData, reservationId, "PayPal")
+            await sendAdminNotification(reservationData, reservationId, "PayPal")
             onProcessing(false)
             setShowSuccessModal(true)
           } catch (err) {
