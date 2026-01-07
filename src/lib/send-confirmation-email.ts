@@ -107,7 +107,7 @@ export async function sendAdminNotification(
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        to: "oubrahamsamy19@gmail.com",
+        to: "lilygovtc@gmail.com",
         subject: "Nouvelle réservation confirmée - VTC LILYGO",
         reservationDetails,
       }),
