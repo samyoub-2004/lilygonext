@@ -545,7 +545,7 @@ export default function ReservationForm() {
         type="submit"
         className="w-full py-4 bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-xl font-semibold transition-all duration-300 hover:from-orange-600 hover:to-red-600 hover:shadow-lg hover:scale-105"
       >
-        Confirmer la Réservation
+        Rechercher
       </button>
 
       <p className="text-xs text-center text-gray-600">Service disponible actuellement en France uniquement</p>

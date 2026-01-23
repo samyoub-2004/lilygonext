@@ -105,10 +105,10 @@ export default function Footer({ language }: FooterProps) {
               <li className="flex items-center gap-2">
                 <Mail className="w-4 h-4" />
                 <a
-                  href="mailto:contact@luxevtc.fr"
+                  href="mailto:contact@lilygo.fr"
                   className="text-primary-foreground/70 hover:text-primary-foreground transition-colors"
                 >
-                  contact@luxevtc.fr
+                  contact@lilygo.fr
                 </a>
               </li>
               <li className="flex items-center gap-2">
